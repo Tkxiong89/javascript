@@ -21,4 +21,17 @@ Array.prototype.uniq = function() {
 };
 
 
-console.log([1,2,2,3,3,3].uniq());
+Array.prototype.twoSums = function() {
+    let arr = [];
+    for (let i = 0; i < this.length; i++) {
+        for (let j = 0; j < this.length; j++) {
+            if (this[i] + this[j] === 0 && j > i) {
+                arr.push(i);
+                arr.push(j);
+            }
+        }
+    }
+    console.log(arr);
+};
+
+[1, -7, 2, 7, -2].twoSums();
