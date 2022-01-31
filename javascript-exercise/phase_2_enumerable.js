@@ -12,8 +12,26 @@ Array#myReduce(callback[, initialValue]) - (like Ruby's Array#inject) receives a
 initialValue is optional and should default to the first element of the array if not provided */
 
 Array.prototype.myEach = function(callBackfn) {
+
     for (let i = 0; i < this.length; i++ ) {
         callBackfn(this[i]);
     }
 };
+
+Array.prototype.myMap = function(callBackfn) {
+    // initialize arr
+    let arr = [];
+
+    // this = array of preceding function [1, 2, 3, 4, 5, 6].myMap
+    
+    this.myEach((el)=> {        // use myEach on 'this'(array) accepting an arrow function as a callback, passing another callback fn from myMap parameter into arr.push
+        arr.push(callBackfn(el))
+    });
+
+    return arr;
+};
+
+let a = [1, 2, 3, 4, 5, 6].myMap( function(el) {
+    return el *= 2;
+});
 
