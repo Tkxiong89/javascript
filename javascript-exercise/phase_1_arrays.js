@@ -31,7 +31,27 @@ Array.prototype.twoSums = function() {
             }
         }
     }
-    console.log(arr);
+    return arr;
 };
 
-[1, -7, 2, 7, -2].twoSums();
+Array.prototype.transpose = function() {
+    
+    // create array with constructor
+
+    let arr = new Array(this.length)
+
+    // create three inner array
+
+    for(let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(this[0].length);
+    }
+
+    // switch indices, transposing arr 
+
+    this.forEach( (_, i) => {
+        this.forEach( (_, j) => {
+            arr[i][j] = this[j][i];
+        });
+    });
+    return arr;
+};
