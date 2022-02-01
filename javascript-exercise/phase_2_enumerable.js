@@ -35,3 +35,24 @@ let a = [1, 2, 3, 4, 5, 6].myMap( function(el) {
     return el *= 2;
 });
 
+Array.prototype.myReducer = function (callBackfn, initialVal)  {
+
+    let arr = this;
+    
+    if (initialVal === undefined) {
+        initialVal = arr[0];
+        arr = arr.slice(1);
+    }
+
+    let sum = initialVal;
+
+    arr.myEach( el => {
+        sum = callBackfn( sum, el )
+    });
+
+    return sum;
+};
+
+
+console.log([1, 2, 3, 4, 5, 6].myReducer( (accumulator, currentVal) => accumulator + currentVal ));
+
