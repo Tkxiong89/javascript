@@ -25,4 +25,18 @@ Array.prototype.bubbleSort = function() {
     return array;
 }
 
-console.log([75, 31, 2, -8, 11, 16, 4, 0].bubbleSort());
+String.prototype.substrings = function() {
+
+    let arr = []
+    for (let i = 0; i < this.length; i++) {
+        for (let j = i+1; j < this.length; j++) {
+            if (!arr.includes(this[i] + this[j])) {
+                arr.push(this[i] + this[j]);
+            }
+        }
+    }
+    return arr;
+}
+
+console.log("hello".substrings());
+
