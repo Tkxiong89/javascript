@@ -40,3 +40,13 @@ function exponent(base, exp) {
 
 }
 
+function exponent_iterate(base, exp) {
+    let x=1;
+    for (let i = 1; i <= exp; i++) {
+         x *= base    
+    }
+    return x;
+}
+
+let a =  exponent_iterate(4, 3);
+console.log(a);
