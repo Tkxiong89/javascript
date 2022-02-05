@@ -30,4 +30,13 @@ function sumRec(arr) {
     return sum;
 }
 
-console.log(sumRec([1, 2, 3, 4]));
+function exponent(base, exp) {
+    let x = 0;
+    if (exp === 1) {
+        return base;
+    }
+    x += base * exponent(base, exp-1)
+    return x;
+
+}
+
