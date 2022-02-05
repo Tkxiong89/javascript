@@ -11,7 +11,7 @@ exponent(base, exp) - receives a base and exponent, returns the base raise to th
 */
 
 function range(start, end) {
-    
+
     if (start === end) {
         return [start];
     } 
@@ -19,7 +19,24 @@ function range(start, end) {
     arr.push(end);
     return arr;
     
-    
 }
 
-console.log(range(1, 4));
+function sumRec(arr) {
+    let sum = 0;
+    if (arr.length === 1) {
+        return arr[0];
+    }
+    sum += sumRec(arr.slice(1)) + arr[0];
+    return sum;
+}
+
+function exponent(base, exp) {
+    let x = 0;
+    if (exp === 1) {
+        return base;
+    }
+    x += base * exponent(base, exp-1)
+    return x;
+
+}
+
